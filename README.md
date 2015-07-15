@@ -2,7 +2,8 @@
 
 Made with my mentor at [Bloc](http://bloc.io).
 
-Things you may want to cover:
+* Deployment instructions:
+ Link  to view the app on Heroku: [stacia-bloccit app](https://stacia-bloccit.herokuapp.com/)
 
 * Ruby version
 
@@ -18,6 +19,5 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
