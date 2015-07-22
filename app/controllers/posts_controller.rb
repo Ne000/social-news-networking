@@ -18,6 +18,8 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
+    @post.user = current_user
+    #  initializing a new post associated with the current user, and passing a hash of post-specific, filtered params as the initialize argument.
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post
