@@ -1,11 +1,8 @@
 class PostsController < ApplicationController
-  
-  before_action :flash_attack
-  skip_before_action :flash_attack, :only => [:index, :new]
-
 
   def index
     @posts = Post.all
+    authorize @posts
   end
 
   def show
@@ -14,12 +11,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post #checks policy on new post resources. renders if satisfied.
   end
   
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
     @post.user = current_user
     #  initializing a new post associated with the current user, and passing a hash of post-specific, filtered params as the initialize argument.
+    authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post

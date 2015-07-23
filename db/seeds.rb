@@ -37,14 +37,44 @@ end
  # to avoid triggering an confirmation email when the User is saved.
  
  # The `save` method then saves this User to the database.
- user = User.first
- user.skip_reconfirmation!
- user.update_attributes!(
-     email: 'staciaray@roadrunner.com',
-     password: 'helloworld'
- )
+ 
+ #user = User.first
+ #user.skip_reconfirmation!
+ #user.update_attributes!(
+     #email: 'staciaray@roadrunner.com',
+     #password: 'helloworld'
+
+admin = User.new(
+    name: 'Admin User',
+    email: 'admin@example.com',
+    password: 'helloworld',
+    role: 'admin'
+)
+    
+admin.skip_confirmation!
+admin.save!
+    
+moderator = User.new(
+    name: 'Moderator User',
+    email: 'moderator@example.com',
+    password: 'helloworld',
+    role: 'moderator'
+)
+
+moderator.skip_confirmation!
+moderator.save!
+
+member = User.new(
+    name: 'Member User',
+    email: 'member@example.com',
+    password: 'helloworld'
+)
+
+member.skip_confirmation!
+member.save!
  
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+
