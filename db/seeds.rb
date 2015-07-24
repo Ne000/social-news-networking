@@ -11,10 +11,21 @@ require 'faker'
 end
 users = User.all
 
+
+15.times do
+    Topic.create!(
+        name: Faker::Lorem.sentence,
+        description: Faker::Lorem.paragraph
+    )
+end
+topics = Topic.all
+    
+    
 #create posts
 50.times do
     Post.create!(
         user: users.sample,
+        topic: topics.sample,
         title: Faker::Lorem.sentence,
         body: Faker::Lorem.paragraph
     )
@@ -38,11 +49,12 @@ end
  
  # The `save` method then saves this User to the database.
  
- #user = User.first
- #user.skip_reconfirmation!
- #user.update_attributes!(
-     #email: 'staciaray@roadrunner.com',
-     #password: 'helloworld'
+user = User.first
+user.skip_reconfirmation!
+user.update_attributes!(
+    email: 'staciaray@roadrunner.com',
+    password: 'helloworld'
+)
 
 admin = User.new(
     name: 'Admin User',
