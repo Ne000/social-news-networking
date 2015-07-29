@@ -1,12 +1,13 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.paginate(page: params[:page], per_page: 10)# equals Topic.all - call paginate on collection of topics and dictate how pagination will render
     authorize @topics
   end
   
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts #see model:  @posts variable scoped for @topic
+    #@posts = @topic.posts #see model:  @posts variable scoped for @topic
+    @posts = @topic.posts.paginate(page:params[:page], per_page: 10)
     authorize @topic
   end
 
