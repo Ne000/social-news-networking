@@ -22,7 +22,7 @@ topics = Topic.all
     
     
 #create posts
-50.times do
+5000.times do
     Post.create!(
         user: users.sample,
         topic: topics.sample,
@@ -89,4 +89,4 @@ puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-
+puts "#{Topic.count} topics created"
