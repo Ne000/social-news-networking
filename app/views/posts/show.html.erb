@@ -16,9 +16,7 @@
             <%= image_tag( @post.image.medium.url ) %>
         </div>
     <% end %>
-
-    
-    
+  
     <div class="col-md-4">
         <% if policy(@post).edit? %>
             <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
@@ -29,8 +27,11 @@
         <h4>Comments</h4>
         <%= render @comments %>
     </div>
-    <div class="col-md-8">
-        <h4>Add a comment:</h4>
-        <%= render partial: '/comments/form', locals: { topic: @topic, post: @post } %>
-    </div>
+    
+    <% if policy(@comments).create? %>
+        <div class="col-md-8">
+            <h4>Add a comment:</h4>
+            <%= render partial: '/comments/form', locals: { topic: @topic, post: @post } %>
+        </div>
+    <% end %>
 </div>

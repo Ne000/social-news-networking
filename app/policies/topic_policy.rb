@@ -11,4 +11,8 @@ class TopicPolicy < ApplicationPolicy
     def update?
         create?
     end
+    
+    def add_comment?
+        user.present?
+    end
 end
