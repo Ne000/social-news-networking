@@ -18,7 +18,10 @@
                         <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
                         submitted <%= time_ago_in_words(post.created_at) %> ago by 
                         <%= post.user.name %><br>
-                        <%= post.comments.count %> Comments  <%= link_to "Add comment", [@topic, post] %>
+                        <%= post.comments.count %> Comments  
+                        <% if policy(@topic).add_comment? %>
+                            <%= link_to "Add comment", [@topic, post] %>
+                        <% end %>
                     </small>
                     <% if post.image? %>
                         <div class="form-group">
