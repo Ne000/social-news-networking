@@ -31,5 +31,13 @@ class Post < ActiveRecord::Base
         
         update_attribute(:rank, new_rank) #rank was an attribute we added to the db table
     end
+    
+    after_create :create_vote
+    
+    private
+    
+    def create_vote
+        user.votes.create(value: 1, post: self) 
+    end
 
 end
