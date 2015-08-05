@@ -7,9 +7,11 @@ class Vote < ActiveRecord::Base
     
     after_save :update_post #will run everytime a vote is saved
     
+
+    
     private
     
-    def update_post
+    def update_post #calls update_post on the vote's post
         post.update_rank #update_rank defined in post.rb
     end
 	

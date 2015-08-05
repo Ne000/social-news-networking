@@ -32,6 +32,8 @@ topics = Topic.all
     # set the creted_at to a time within the past yera
     post.update_attributes!(created_at: rand(10.minutes..1.year).ago)
     post.update_rank
+    post.create_vote
+    
 end
 posts = Post.all
 
