@@ -22,6 +22,7 @@ topics = Topic.all
     
     
 #create posts
+
 3000.times do
     post = Post.create!(
         user: users.sample,
@@ -95,4 +96,3 @@ puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Topic.count} topics created"
-
