@@ -15,4 +15,8 @@ class TopicPolicy < ApplicationPolicy
     def add_comment?
         user.present?
     end
+    
+    def show?
+        record.public? || user.present?
+    end
 end
