@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   
   has_many :votes, dependent: :destroy
   
+  has_many :favorites, dependent: :destroy
+  
   mount_uploader :avatar, AvatarUploader
   
   
@@ -20,4 +22,9 @@ class User < ActiveRecord::Base
   def moderator?
     role == 'moderator'
   end
+  
+  def favorited(post) #takes a post object and returns a favorite object, if one exists
+    favorites.where(post_id: post.id).first #if entry in favorites table with user_id and post_id
+  end
+  
 end
