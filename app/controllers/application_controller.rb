@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
   
+  def after_sign_in_path_for(resource) #returns topics_path to display topics#index
+    topics_path
+  end
+    
+  
   protected
   
   def configure_permitted_parameters

@@ -7,7 +7,13 @@ class Vote < ActiveRecord::Base
     
     after_save :update_post #will run everytime a vote is saved
     
-
+    def up_vote?
+        value == 1
+    end
+    
+    def down_vote?
+        value == -1
+    end
     
     private
     

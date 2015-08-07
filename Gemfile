@@ -48,6 +48,9 @@ group :development, :test do
   gem 'spring'
   
   gem 'rspec-rails','~>3.0'
+  
+  gem 'capybara'
+
 
 end
 
@@ -81,3 +84,4 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 
 gem 'hirb'
+

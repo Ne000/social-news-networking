@@ -41,6 +41,12 @@
         <%= f.file_field :avatar %>
         
       </div>
+      
+      <div class="form-group">
+        <%= f.label :email_favorites %>
+        <%= f.check_box :email_favorites %>
+        <p class="help-block">Be notified of new comments on your favorites</p>
+      </div>
       <div class="form-group">
         <%= f.submit "Update", class: 'btn btn-success' %>
       </div>
