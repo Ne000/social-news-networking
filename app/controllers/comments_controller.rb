@@ -24,7 +24,12 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "There was an error deleting the comment. Please try again."
     end
-      redirect_to :back
+      
+    respond_to do |format| 
+      format.html
+      format.js
+    end
+  
   end
   
   private
