@@ -39,15 +39,14 @@
         <% end %>
     </div>
     
-    <div class="col-md-8">
-        <h4>Comments</h4>
+    
+    <h2>Comments</h2>
+    <div class='js-comments'>
         <%= render partial: 'comments/comment', collection: @comments %>
     </div>
+        
+    <div class='new-comment'>
+        <%= render partial: '/comments/form' %>
+    </div>
     
-    <% if policy(@comments).create? %>
-        <div class="col-md-8">
-            <h4>Add a comment:</h4>
-            <%= render partial: '/comments/form', locals: { topic: @topic, post: @post } %>
-        </div>
-    <% end %>
 </div>

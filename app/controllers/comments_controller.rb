@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params) 
+    @comments = @post.comments
+    @comment = Comment.new( comment_params )
     @comment.user = current_user
+    @comment.post = @post
+    @new_comment = Comment.new
     authorize @comment
     
     if @comment.save
@@ -10,7 +13,11 @@ class CommentsController < ApplicationController
     else
       flash[:error] =  "Error saving comment"
     end
-    redirect_to :back
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def destroy
@@ -29,7 +36,6 @@ class CommentsController < ApplicationController
       format.html
       format.js
     end
-  
   end
   
   private
