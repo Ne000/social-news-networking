@@ -6,11 +6,11 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index? #no user will be able to see list of resources
+  def index? 
     false
   end
 
-  def show? #default rule to ensure a record exists
+  def show? 
     scope.where(:id => record.id).exists?
   end
 
@@ -34,7 +34,7 @@ class ApplicationPolicy
     update?
   end
 
-  def scope # used as a base for model searches. return the class of record being authorized
+  def scope 
     record.class
   end
 
