@@ -31,7 +31,8 @@ Development Tools, Gems and Methodologies:
     Redcarpet for Markdown formatting    
     Will_paginate for pagination    
     Amazon S3 for image storage    
-    Fog to support Amazon S3    
+    Fog to support Amazon S3 
+    New Relic Analytics for real-time data tracking of app traffic
     
 
 **Deployment**    
