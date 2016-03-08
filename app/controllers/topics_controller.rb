@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.visible_to(current_user).paginate(page: params[:page], per_page: 10)# equals Topic.all - call paginate on collection of topics and dictate how pagination will render
+    @topics = Topic.visible_to(current_user).paginate(page: params[:page], per_page: 10)
     authorize @topics
   end
   
@@ -8,7 +8,6 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
     @posts = @topic.posts.includes(:user).includes(:comments).paginate(page:params[:page], per_page: 10)
-    
   end
 
   def new
@@ -25,7 +24,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     authorize @topic
     if @topic.save
-      redirect_to @topic, notice: "Topic was saved." #why not use flash[:notice]
+      redirect_to @topic, notice: "Topic was saved."
     else
       flash[:error] = "There was an error saving the topic. Please try again."
       render :new
