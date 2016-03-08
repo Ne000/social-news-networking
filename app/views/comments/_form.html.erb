@@ -1,7 +1,7 @@
 
 <%= form_for [@post, Comment.new], remote: true do |f| %>
     <div class="form-group">
-        <%= f.label :body %>
+        <% f.label :body %>
         <%= f.text_area :body, rows: 2, class: 'form-control', placeholder: "Enter comment" %>
     </div> 
     
