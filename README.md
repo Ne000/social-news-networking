@@ -17,10 +17,14 @@ Users can
 
 ## Technologies    
 Languages, Libraries, and Frameworks:    
-* Ruby on Rails, jQuery, AJAX, Bootstrap   
+* Ruby on Rails
+* jQuery
+* AJAX
+* Bootstrap   
 
 Databases: 
-* SQLite (Test, Development), PostgreSQL (Production)   
+* SQLite (Test, Development)
+* PostgreSQL (Production)   
 
 Development Tools, Gems and Methodologies:       
 * Test-Driven Development: RSpec, Capybara, FactoryGirl        
