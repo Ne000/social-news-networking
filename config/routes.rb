@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" , sessions: "users/sessions"} # use different controller than one provided by Devise to change layout
   
   resources :users, only: [:update, :show, :index]
   

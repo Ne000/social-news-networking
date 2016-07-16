@@ -1,25 +1,74 @@
-<h1>Topics</h1>
-
-<div class="row">
-    <div class="col-md-8">
-        <% @topics.each do |topic| %>
-            <div class="media">
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <%= link_to topic.name, topic %>
-                    </h4>
-                    <small>
-                        <%= topic.description %>
-                    </small>
-                </div>
-            </div>
-        <% end %>
-        <%= will_paginate @topics %>
-    </div>
-    
-    <div class="col-md-4">
-        <% if policy(Topic.new).create? %>
-            <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-        <% end %>    
-    </div>
+<!--=== Breadcrumbs v1 ===-->
+<div class="breadcrumbs-v1">
+	<div class="container"><h1>Topics</h1></div>
 </div>
+<!--=== End Breadcrumbs v1 ===-->
+
+<!--=== Blog Posts ===-->
+<div class="container content-md">
+		<!-- Blog All Posts -->
+		<div class="col-md-9">
+			<!-- News v3 -->
+			<% @topics.each do |topic| %>
+				<div class="row margin-bottom-20">
+					
+					<div class="col-sm-12 news-v3">
+						<div class="tag-box tag-box-v2 box-shadow shadow-effect-1">
+							<h2><%= link_to topic.name, topic %></h2>
+							<p><%= topic.description %></p>
+						</div>
+					</div>
+				</div><!--/end row-->
+			<% end %>
+
+			<div class="clearfix margin-bottom-20"><hr></div>
+
+			<!-- Pager v3 -->
+			<ul class="pager pager-v3 pager-sm no-margin-bottom">
+				<li><%= will_paginate @topics %></li>
+			</ul>
+			<!-- End Pager v3 -->
+		</div>
+		<!-- End Blog All Posts -->
+
+		<!-- Blog Sidebar -->
+		<div class="col-md-3">
+			<div class="headline-v2 bg-color-light">
+				<h2>Topic List</h2>
+				<% if policy(Topic.new).create? %> 
+					<%= link_to "Add new topic", new_topic_path, class: 'label rounded-2x label-light-green' %>
+				<% end %>
+			</div>
+			<!-- Topic List Menu -->
+			<ul class="list-unstyled blog-trending margin-bottom-50">
+				<% @topics.each do |topic| %>
+					<li>
+						<h3><%=link_to topic.name, topic %></h3>
+						<small><%= topic.posts.length %> posts</small>
+					</li>
+				<% end %>
+			</ul>
+			<!-- End Topic List Menu -->
+
+			<div class="headline-v2 bg-color-light"><h2>Latest Posts</h2></div>
+			<!-- Latest Links -->
+			<ul class="list-unstyled blog-latest-posts margin-bottom-50">
+				<li>
+					<h3><a href="#">The point of using Lorem Ipsum</a></h3>
+					<small>19 Jan, 2015 / <a href="#">Hi-Tech,</a> <a href="#">Technology</a></small>
+					<p>Phasellus ullamcorper pellentesque ex. Cras venenatis elit orci, vitae dictum elit egestas a. Nunc nec auctor mauris, semper scelerisque nibh.</p>
+				</li>
+				<li>
+					<h3><a href="#">Many desktop publishing packages...</a></h3>
+					<small>23 Jan, 2015 / <a href="#">Art,</a> <a href="#">Lifestyles</a></small>
+					<p>Integer vehicula sed justo ac dapibus. In sodales nunc non varius accumsan.</p>
+				</li>
+			</ul>
+			<!-- End Latest Links -->
+		</div>
+		<!-- End Blog Sidebar -->
+	</div>
+</div>
+		<!--=== End Blog Posts ===-->
+
+		

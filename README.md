@@ -1,7 +1,7 @@
-# Bloccit
+# Social News Networking App
 
 ## Summary    
-Bloccit is a Reddit replica built on Ruby on Rails. It lets Users post, comment, and vote on content.
+A Reddit replica built on Ruby on Rails. It lets Users post, comment, and vote on content.
 I made it with the help of a mentor through the Bloc FullStack Web Development Apprenticeship.  
 
 ## Features
@@ -42,6 +42,6 @@ Development Tools, Gems and Methodologies:
 * New Relic Analytics for real-time data tracking of app traffic   
     
 ## Deployment    
-You can view the app on Heroku: [stacia-bloccit app](https://stacia-bloccit.herokuapp.com/)
+You can view the app on Heroku: [social news networking app](https://social-news-networking.herokuapp.com/)
 
 
